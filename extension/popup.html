@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Highlighter</title>
+  <style>
+    body {
+      width: 260px;
+      padding: 12px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+    .switch {
+      --switch-w: 48px;
+      --switch-h: 28px;
+      display: inline-block;
+      position: relative;
+      width: var(--switch-w);
+      height: var(--switch-h);
+    }
+    .switch input { display:none; }
+    .switch .track {
+      position:absolute; inset:0; border-radius:999px; background:#e5e5ea; transition:background .2s;
+    }
+    .switch .thumb {
+      position:absolute; top:3px; left:3px; width:22px; height:22px; border-radius:50%; background:white; box-shadow:0 2px 6px rgba(0,0,0,0.2); transition:left .18s;
+    }
+    .switch input:checked + .track { background: #4cd964; }
+    .switch input:checked + .track .thumb { left: calc(var(--switch-w) - 3px - 22px); }
+    .status {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <label class="switch" title="Включить/выключить хайлайтер">
+    <input type="checkbox" id="toggleSwitch">
+    <div class="track"><div class="thumb"></div></div>
+  </label>
+  <div class="status" id="status">Режим: ВЫКЛ</div>
+  <hr>
+  <div style="font-size:13px; color:#444; text-align:left;">
+    Режим выделения управляется свитчером выше. Панель выделений открывается на странице.
+    <div style="margin-top:8px;">
+      <button id="panelBtn" style="width:100%; padding:8px; font-size:14px;">Показать/Скрыть панель</button>
+    </div>
+  </div>
+  <hr>
+  <div style="font-size:12px; color:#666; text-align:left;">
+    Автор: GitHub Copilot<br>
+    Соавтор: Ivan
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
